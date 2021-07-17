@@ -289,6 +289,13 @@ $(document).ready(() =>{
     })
 
     window.onclick = function(e) {
+        for(let i = 0; i < e?.path?.length; i++){
+            let p = e.path[i];
+            if(p.id === 'myDropdown'){
+                return;
+            }
+        }
+        
         if(e.target.id !== 'btnDropdown' && e.target.id !== 'btnInbox' && e.target.id !== 'path1' && e.target.id !== 'path2' && e.target.id !== 'tooltip' ){
             $('#myDropdown').hide();
         }
