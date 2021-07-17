@@ -279,4 +279,7 @@ function loadData() {
 
 $(document).ready(() =>{
     loadData();
+    $('#btnUp').click((e) =>{
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    })
 })

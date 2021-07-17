@@ -570,7 +570,7 @@ header .search-bar input::placeholder {
 }
 
 .floating{
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     right: 40px;
