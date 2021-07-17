@@ -18,8 +18,8 @@
 }
 
 header {
-    background-color: var(--gray-light);
-    display: flex;
+    background-color: #4a4a4a;
+    display: flex !important;
     padding: 5px 40px;
     align-items: center;
     justify-content: space-between;
@@ -61,19 +61,92 @@ header .actions .btn-action {
     background: none;
     margin-right: 40px;
     cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
 
-header .actions .btn-action svg{
+header .actions .btn-action .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    top: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #636464;
+    width: 100px;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 0;
+    z-index: 1;
+    font-weight: 600;
+}
+
+header .actions .btn-action:hover .tooltip-text {
+    visibility: visible !important;
+}
+
+header .actions .btn-action:hover .tooltip-text::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 95%;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #636464;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+header .actions .dropdown {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+header .actions .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #636464;
+    top: 105%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 7px;
+    color: white;
+}
+
+.show {display: block;}
+
+header .actions .dropdown-content::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 95%;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #636464;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+header .actions .btn-action svg {
     width: 24px;
     height: 24px;
 }
 
-header .actions .btn-action svg path{
+header .actions .btn-action svg path {
     transition: fill 0.4s;
 }
 
-header .actions .btn-action svg:hover path{
-    fill: #DD2B51;
+header .actions .btn-action svg:hover path {
+    fill: #dd2b51;
 }
 
 header .search-bar {
@@ -108,7 +181,7 @@ header .search-bar .input-right {
     z-index: 10;
 }
 
-header .search-bar .input-right img{
+header .search-bar .input-right img {
     width: 70%;
 }
 
@@ -138,12 +211,12 @@ header .search-bar input::placeholder {
     margin-bottom: 30px;
 }
 
-.container .side-nav .main-feature .nav-item:hover .nav-item-icon-hover{
-    fill: #DD2B51;
+.container .side-nav .main-feature .nav-item:hover .nav-item-icon-hover {
+    fill: #dd2b51;
 }
 
-.container .side-nav .main-feature .nav-item:hover .nav-link{
-    color: #DD2B51;
+.container .side-nav .main-feature .nav-item:hover .nav-link {
+    color: #dd2b51;
 }
 
 .container .side-nav .main-feature .nav-item .nav-link {
@@ -155,8 +228,8 @@ header .search-bar input::placeholder {
     transition: 0.3s;
 }
 
-.container .side-nav .main-feature .nav-item .nav-link.active{
-    color: #DD2B51;
+.container .side-nav .main-feature .nav-item .nav-link.active {
+    color: #dd2b51;
 }
 
 .container .side-nav .main-feature .nav-item img {
@@ -195,8 +268,8 @@ header .search-bar input::placeholder {
     transition: 0.4s;
 }
 
-.container .side-nav .accounts .btn-more:hover{
-    background-color: #DD2B51;
+.container .side-nav .accounts .btn-more:hover {
+    background-color: #dd2b51;
 }
 
 .container .side-nav .accounts .btn-more img {
@@ -329,8 +402,8 @@ header .search-bar input::placeholder {
     transition: 0.3s;
 }
 
-.container .for-you-content .post-content-container .user-interact .btn-follow:hover{
-    background-color: #DD2B51;
+.container .for-you-content .post-content-container .user-interact .btn-follow:hover {
+    background-color: #dd2b51;
 }
 
 .container .for-you-content .post-content-container .user-interact .comments {
@@ -340,7 +413,7 @@ header .search-bar input::placeholder {
     position: relative;
 }
 
-.container .for-you-content .post{
+.container .for-you-content .post {
     margin-top: 30px;
 }
 
@@ -393,14 +466,14 @@ header .search-bar input::placeholder {
     height: 28px;
 }
 
-.container .for-you-content .post-content-container .user-interact .comments .heart .heart-outline{
+.container .for-you-content .post-content-container .user-interact .comments .heart .heart-outline {
     font-size: 28px;
     color: #747474;
     transition: 0.4s;
 }
 
-.container .for-you-content .post-content-container .user-interact .comments .heart .heart-outline:hover{
-    color: #DD2B51;
+.container .for-you-content .post-content-container .user-interact .comments .heart .heart-outline:hover {
+    color: #dd2b51;
 }
 
 .container .for-you-content .post-content-container .user-interact .comments .user-comment .user-comment-content {
@@ -442,10 +515,11 @@ header .search-bar input::placeholder {
     .comments
     .user-comment
     .user-comment-content
-    .reply div:nth-child(2):hover{
-        color: #DD2B51;
-        cursor: pointer;
-    }
+    .reply
+    div:nth-child(2):hover {
+    color: #dd2b51;
+    cursor: pointer;
+}
 
 .container
     .for-you-content
@@ -465,7 +539,7 @@ header .search-bar input::placeholder {
     align-items: center;
 }
 
-.container .for-you-content .post-content-container .user-interact .comments .comment-actions img{
+.container .for-you-content .post-content-container .user-interact .comments .comment-actions img {
     cursor: pointer;
 }
 
@@ -475,8 +549,15 @@ header .search-bar input::placeholder {
     font-size: 14px;
 }
 
-.container .for-you-content .post-content-container .user-interact .comments .comment-actions .heart:hover .heart-hover{
-    fill: #DD2B51;
+.container
+    .for-you-content
+    .post-content-container
+    .user-interact
+    .comments
+    .comment-actions
+    .heart:hover
+    .heart-hover {
+    fill: #dd2b51;
 }
 
 .container .for-you-content .post-content-container .user-interact .comments .comment-actions .heart-icon {
@@ -569,7 +650,7 @@ header .search-bar input::placeholder {
     align-items: flex-start !important;
 }
 
-.floating{
+.floating {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -577,8 +658,8 @@ header .search-bar input::placeholder {
     bottom: 20px;
 }
 
-.btn-app{
-    background-color: #DD2B51;
+.btn-app {
+    background-color: #dd2b51;
     border-radius: 50%;
     color: white;
     border: none;
@@ -592,13 +673,13 @@ header .search-bar input::placeholder {
     transition: 0.4s;
 }
 
-.btn-app:hover{
-    color: #DD2B51;
-    border: 1px solid #DD2B51;
+.btn-app:hover {
+    color: #dd2b51;
+    border: 1px solid #dd2b51;
     background: #fff;
 }
 
-.btn-up{
+.btn-up {
     border: none;
     width: 50px;
     height: 50px;
@@ -612,11 +693,11 @@ header .search-bar input::placeholder {
     transition: 0.4s;
 }
 
-.btn-up img{
+.btn-up img {
     width: 25px;
     height: 25px;
 }
 
-.btn-up:hover{
-    background-color: #DD2B51;
+.btn-up:hover {
+    background-color: #dd2b51;
 }

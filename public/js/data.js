@@ -282,4 +282,15 @@ $(document).ready(() =>{
     $('#btnUp').click((e) =>{
         window.scrollTo({top: 0, behavior: 'smooth'});
     })
+
+    $('#btnDropdown').click((e) =>{
+        $('#tooltip').css('visibility', 'hidden');
+        $('#myDropdown').show();
+    })
+
+    window.onclick = function(e) {
+        if(e.target.id !== 'btnDropdown' && e.target.id !== 'btnInbox' && e.target.id !== 'path1' && e.target.id !== 'path2' && e.target.id !== 'tooltip' ){
+            $('#myDropdown').hide();
+        }
+      }
 })
